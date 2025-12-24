@@ -1,6 +1,6 @@
 const metrics = [
   {
-    value: "45s",
+    value: "2.5s",
     label: "average response time to leads",
   },
   {
@@ -12,7 +12,7 @@ const metrics = [
     label: "faster than email or SMS",
   },
   {
-    value: "65%",
+    value: "92%",
     label: "average customer satisfaction rate",
   },
 ]
