@@ -20,7 +20,7 @@ export function HeroSection() {
             <Button
               size="lg"
               className="bg-primary hover:bg-primary text-primary-foreground rounded-md px-6 h-11 text-sm font-medium relative group overflow-hidden inline-flex items-center justify-center"
-              onClick={() => window.location.href = 'https://bit.ly/waply-book-demo'}
+              onClick={() => window.open('https://bit.ly/waply-book-demo', '_blank')}
             >
               <span className="transition-all duration-300 group-hover:opacity-0 group-hover:-translate-y-full">
                 Book demo
@@ -34,7 +34,7 @@ export function HeroSection() {
               size="lg"
               variant="outline"
               className="border-primary text-primary hover:text-primary hover:bg-background bg-background rounded-md px-6 h-11 text-sm font-medium relative group overflow-hidden inline-flex items-center justify-center"
-              onClick={() => window.location.href = 'https://app.waply.io'}
+              onClick={() => window.open('https://app.waply.io', '_blank')}
             >
               <span className="transition-all duration-300 group-hover:opacity-0 group-hover:-translate-y-full flex items-center gap-2">
                 Get Started
@@ -44,6 +44,9 @@ export function HeroSection() {
               </span>
             </Button>
           </div>
+          <p className="text-sm text-neutral-600 mt-4" style={{fontFamily: 'Satoshi, sans-serif'}}>
+            Start Free Trial — No Credit Card Required
+          </p>
         </div>
       </div>
     </section>

@@ -25,14 +25,14 @@ export function Navbar() {
           <Link href="/" className="px-4 py-1.5 rounded-full text-sm font-medium text-foreground bg-background transition-colors">
             Home
           </Link>
-          <a href="https://app.dover.com/jobs/waply" className="px-4 py-1.5 rounded-full text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+          <a href="https://app.dover.com/jobs/waply" target="_blank" rel="noopener noreferrer" className="px-4 py-1.5 rounded-full text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
             Careers
           </a>
         </div>
 
         <Button 
           className="bg-primary hover:bg-primary text-primary-foreground rounded-md px-5 py-2 h-auto text-sm font-medium relative group overflow-hidden inline-flex items-center justify-center"
-          onClick={() => window.location.href = 'https://calendly.com/mohammadnabeel/30min'}
+          onClick={() => window.open('https://calendly.com/mohammadnabeel/30min', '_blank')}
         >
           <span className="transition-all duration-300 group-hover:opacity-0 group-hover:-translate-y-full">
             Book demo
