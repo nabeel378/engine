@@ -17,7 +17,7 @@ const features = [
     icon: Send,
     title: "Broadcast",
     description: "Send targeted campaigns to thousands of customers instantly",
-    video: null
+    video: "/broadcast.mp4"
   },
   {
     icon: Workflow,
