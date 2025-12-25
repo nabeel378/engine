@@ -9,7 +9,7 @@ export function CTASection() {
         <div className="grid lg:grid-cols-2 gap-8 items-start py-16 lg:py-20">
           <div className="flex flex-col justify-start pt-8">
             <div className="flex items-center gap-2 mb-6">
-              <svg
+              {/* <svg
                 width="32"
                 height="32"
                 viewBox="0 0 32 32"
@@ -25,7 +25,7 @@ export function CTASection() {
                 <rect x="16" y="16" width="8" height="8" fill="currentColor" />
                 <rect x="8" y="24" width="8" height="8" fill="currentColor" />
                 <rect x="24" y="24" width="8" height="8" fill="currentColor" />
-              </svg>
+              </svg> */}
               <span className="text-2xl font-semibold text-primary-foreground">Waply</span>
             </div>
             <h2 className="text-4xl lg:text-5xl font-normal text-primary-foreground mb-4 leading-tight">
