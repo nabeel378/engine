@@ -13,25 +13,12 @@ const _merriweather = Merriweather({
 })
 
 export const metadata: Metadata = {
-  title: "Chasi AI - AI Concierge for Equipment Sales",
+  title: "Waply - WhatsApp Automation Platform",
   description:
-    "Give every customer VIP treatment with 24/7 AI responses. Automate busy work and close more deals in equipment sales, service & rentals.",
-  generator: "v0.app",
+    "Never lose a customer to a slow reply again. Automate WhatsApp conversations, scale your team, and grow your business.",
+  generator: "waply.io",
   icons: {
-    icon: [
-      {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
-      },
-    ],
+    icon: "/favicon.png",
     apple: "/apple-icon.png",
   },
 }
