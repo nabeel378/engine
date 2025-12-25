@@ -42,13 +42,13 @@ const features = [
     icon: BarChart3,
     title: "Analytics",
     description: "Real-time insights into response times, conversion rates, and engagement",
-    video: null
+    video: "/analytic.mov"
   },
   {
     icon: Zap,
     title: "AI Assistant",
     description: "Intelligent handoff and auto-responses powered by AI",
-    video: null
+    video: "/ai.mov"
   },
 ]
 
