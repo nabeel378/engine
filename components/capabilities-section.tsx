@@ -90,17 +90,23 @@ export function CapabilitiesSection() {
             return (
               <div
                 key={index}
-                className={`group relative overflow-hidden rounded-2xl transition-all duration-500 cursor-pointer hover:shadow-2xl ${colSpan}`}
+                className={`group relative overflow-hidden rounded-2xl transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl ${colSpan}`}
+                style={{
+                  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.05), 0 10px 16px rgba(0, 0, 0, 0.1)",
+                }}
               >
                 {/* Background GIF/Demo Area */}
                 <div
-                  className="relative w-full bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 border border-neutral-200 overflow-hidden"
+                  className="relative w-full bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 overflow-hidden"
                   style={{
                     aspectRatio: isLarge ? "2 / 1.2" : "1 / 1.2",
+                    boxShadow: "0 0 24px rgba(22, 163, 74, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.6)",
+                    border: "1px solid",
+                    borderImage: "linear-gradient(135deg, rgba(22, 163, 74, 0.3), rgba(16, 185, 129, 0.15)) 1",
                   }}
                 >
                   {/* Animated background accent */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-green-100/20 to-transparent"></div>
+                  <div className="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity duration-300 bg-gradient-to-br from-green-100/40 to-transparent"></div>
                   
                   {/* Video Content */}
                   {feature.video ? (
@@ -143,17 +149,22 @@ export function CapabilitiesSection() {
                 {/* Info Section */}
                 <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-white via-white/90 to-transparent pt-6">
                   <h3
-                    className="text-base font-semibold text-foreground mb-1"
+                    className="text-left font-medium text-foreground mb-1"
                     style={{
                       fontFamily: "Satoshi, sans-serif",
+                      fontSize: "22px",
+                      lineHeight: "1.3",
                       letterSpacing: "-0.01em",
                     }}
                   >
                     {feature.title}
                   </h3>
                   <p
-                    className="text-xs text-neutral-600 leading-tight group-hover:text-neutral-700 transition-colors"
-                    style={{ fontFamily: "Satoshi, sans-serif" }}
+                    className="mt-2 text-sm text-neutral-600"
+                    style={{
+                      fontFamily: "Satoshi, sans-serif",
+                      lineHeight: "1.5"
+                    }}
                   >
                     {feature.description}
                   </p>
