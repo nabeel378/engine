@@ -11,7 +11,7 @@ const features = [
     icon: Filter,
     title: "Keyword Trigger",
     description: "Auto-respond to customer messages based on keywords and conditions",
-    video: null
+    video: "/keyword.mov"
   },
   {
     icon: Send,
