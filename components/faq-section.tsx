@@ -2,39 +2,38 @@
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Plus } from "lucide-react"
-
 const faqs = [
   {
     question: "Who is Waply for?",
     answer:
-      "Waply is built for any business that wants to deliver exceptional customer experiences through WhatsApp and other messaging channels. From e-commerce to SaaS, support teams to sales—if you chat with customers, Waply helps you do it faster and smarter.",
+      "Waply is designed for businesses that rely on WhatsApp to sell, support, and engage customers. It’s ideal for e-commerce brands, service providers, agencies, SaaS companies, and growing teams that want to automate conversations, manage leads, and close more deals without complexity.",
   },
   {
     question: "What channels does Waply support?",
     answer:
-      "Waply specializes in WhatsApp but also supports SMS, email, and web chat through our unified omni-channel inbox. Manage all customer conversations in one place, regardless of where they reach you.",
+      "Waply is built primarily for WhatsApp Business API. In addition, you can manage conversations from Facebook, Instagram, web chat, and other channels in one unified inbox so your team never misses a customer message.",
   },
   {
     question: "Can I automate customer conversations without coding?",
     answer:
-      "Yes! Our visual Flow Builder lets you create sophisticated automation journeys without writing any code. Build keyword triggers, multi-step workflows, and smart handoffs to human agents—all through an intuitive interface.",
+      "Absolutely. Waply’s no-code automation tools let you build smart conversation flows, auto-replies, lead qualification, order updates, and follow-ups without writing a single line of code. You can also switch to a human agent anytime.",
   },
   {
-    question: "How quickly can I launch Waply?",
+    question: "How fast can I get started?",
     answer:
-      "Most teams get started in days, not weeks. Connect your WhatsApp Business Account, set up your automations using the Flow Builder, and you're live. We provide setup support and templates to accelerate your launch.",
+      "You can start immediately with a free trial. Most businesses go live within a few days after connecting their WhatsApp Business account. Our guided setup, templates, and support make onboarding fast and simple.",
   },
   {
     question: "How does pricing work?",
     answer:
-      "Waply offers flexible pricing based on message volume and features you need. Whether you're sending 1,000 or 1 million messages per month, we scale with you. Get a custom quote or start with our free tier.",
+      "Waply offers a free trial and a simple $39/month plan. Message charges from WhatsApp (Meta) apply separately based on usage. There are no hidden fees pay only for what you use as your business grows.",
   },
   {
-    question: "How do you protect customer data and privacy?",
+    question: "Is my customer data safe with Waply?",
     answer:
-      "Security is non-negotiable. All data is encrypted end-to-end, we comply with GDPR and other regulations, and your conversations are never used to train AI models. Your customer data is yours and only yours.",
+      "Yes. We take security seriously. All data is securely encrypted, access is role-based, and your customer conversations remain private. Waply never sells or uses your data for training third-party AI models.",
   },
-]
+];
 
 export function FAQSection() {
   return (
