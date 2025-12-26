@@ -1,7 +1,7 @@
 "use client"
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Plus } from "lucide-react"
+
 const faqs = [
   {
     question: "Who is Waply for?",
@@ -52,10 +52,7 @@ export function FAQSection() {
                 className="border border-border rounded-lg bg-card px-5"
               >
                 <AccordionTrigger className="text-left text-sm font-medium text-foreground hover:text-primary py-4 hover:no-underline">
-                  <span className="flex items-center justify-between w-full">
-                    <span>{faq.question}</span>
-                    <Plus className="size-5 text-primary shrink-0 ml-4 transition-transform duration-200 [[data-state=open]>&]:rotate-45" />
-                  </span>
+                  {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-sm text-muted-foreground pb-4 leading-relaxed">
                   {faq.answer}

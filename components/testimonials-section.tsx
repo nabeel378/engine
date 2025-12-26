@@ -1,6 +1,7 @@
 "use client"
 
 import { Card, CardContent } from "@/components/ui/card"
+import { useState, useRef } from "react"
 
 const testimonials = [
   {
@@ -45,6 +46,45 @@ const testimonials = [
 ]
 
 export function TestimonialsSection() {
+  const [isDragging, setIsDragging] = useState(false)
+  const [startX, setStartX] = useState(0)
+  const [scrollLeft, setScrollLeft] = useState(0)
+  const trackRef = useRef<HTMLDivElement>(null)
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setIsDragging(true)
+    setStartX(e.pageX - (trackRef.current?.offsetLeft || 0))
+    setScrollLeft(trackRef.current?.scrollLeft || 0)
+  }
+
+  const handleMouseUp = () => {
+    setIsDragging(false)
+  }
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging) return
+    e.preventDefault()
+    const x = e.pageX - (trackRef.current?.offsetLeft || 0)
+    const walk = (x - startX) * 0.5
+    if (trackRef.current) {
+      trackRef.current.scrollLeft = scrollLeft - walk
+    }
+  }
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setIsDragging(true)
+    setStartX(e.touches[0].pageX - (trackRef.current?.offsetLeft || 0))
+    setScrollLeft(trackRef.current?.scrollLeft || 0)
+  }
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging) return
+    const x = e.touches[0].pageX - (trackRef.current?.offsetLeft || 0)
+    const walk = (x - startX) * 0.5
+    if (trackRef.current) {
+      trackRef.current.scrollLeft = scrollLeft - walk
+    }
+  }
   return (
     <section className="py-16 lg:py-20 bg-background border-y border-border">
       <div className="container mx-auto px-4">
@@ -61,44 +101,62 @@ export function TestimonialsSection() {
             who trust <span className="italic text-primary" style={{fontFamily: 'Instrument Serif, serif'}}>Waply</span>
           </h2>
         </div>
-        <div className="testimonial-marquee">
-          <div className="testimonial-marquee-track">
-            {[...testimonials, ...testimonials].map((testimonial, index) => (
-              <Card
-                key={index}
-                className="testimonial-card flex-shrink-0"
-                style={{width: '340px', height: '350px', borderRadius: '20px'}}
-              >
-                <CardContent className="relative z-[1] p-0 h-full flex flex-col justify-between">
-                  <div>
-                    <div className="flex gap-1 mb-4">
-                    {Array.from({ length: testimonial.rating }).map((_, i) => (
-                        <span key={i} className="text-primary text-lg" aria-hidden>
-                          ★
-                        </span>
-                    ))}
-                    </div>
-                    <blockquote className="mb-6">
-                      <p
-                        className="text-sm text-neutral-700 leading-relaxed"
-                        style={{fontFamily: 'Satoshi, sans-serif'}}
-                      >
-                        "{testimonial.quote}"
-                      </p>
-                    </blockquote>
+        <div 
+          className="testimonial-scroll-container"
+          ref={trackRef}
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseUp}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleMouseUp}
+          style={{
+            display: 'flex',
+            gap: '1.5rem',
+            overflowX: 'auto',
+            overflowY: 'hidden',
+            scrollBehavior: 'smooth',
+            cursor: isDragging ? 'grabbing' : 'grab',
+            userSelect: isDragging ? 'none' : 'auto',
+            WebkitUserSelect: isDragging ? 'none' : 'auto',
+          }}
+        >
+          {testimonials.map((testimonial, index) => (
+            <Card
+              key={index}
+              className="testimonial-card flex-shrink-0"
+              style={{width: '340px', height: '350px', borderRadius: '20px'}}
+            >
+              <CardContent className="relative z-[1] p-0 h-full flex flex-col justify-between">
+                <div>
+                  <div className="flex gap-1 mb-4">
+                  {Array.from({ length: testimonial.rating }).map((_, i) => (
+                      <span key={i} className="text-primary text-lg" aria-hidden>
+                        ★
+                      </span>
+                  ))}
                   </div>
-                  <footer className="text-xs space-y-1">
-                    <p className="font-medium text-foreground" style={{fontFamily: 'Satoshi, sans-serif'}}>
-                      {testimonial.author}
+                  <blockquote className="mb-6">
+                    <p
+                      className="text-sm text-neutral-700 leading-relaxed"
+                      style={{fontFamily: 'Satoshi, sans-serif'}}
+                    >
+                      "{testimonial.quote}"
                     </p>
-                    <p className="text-muted-foreground" style={{fontFamily: 'Satoshi, sans-serif'}}>
-                      {testimonial.company}
-                    </p>
-                  </footer>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                  </blockquote>
+                </div>
+                <footer className="text-xs space-y-1">
+                  <p className="font-medium text-foreground" style={{fontFamily: 'Satoshi, sans-serif'}}>
+                    {testimonial.author}
+                  </p>
+                  <p className="text-muted-foreground" style={{fontFamily: 'Satoshi, sans-serif'}}>
+                    {testimonial.company}
+                  </p>
+                </footer>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
     </section>

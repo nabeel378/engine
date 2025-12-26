@@ -1,3 +1,5 @@
+"use client"
+
 import { MessageSquare, Workflow, Filter, Send, Package, Users, BarChart3, Zap } from "lucide-react"
 
 const features = [
@@ -116,8 +118,11 @@ export function CapabilitiesSection() {
                       loop
                       playsInline
                       className="w-full h-full object-cover"
+                      onError={() => console.log('Video failed to load')}
                     >
                       <source src={feature.video} type="video/mp4" />
+                      <source src={feature.video.replace('.mp4', '.mov')} type="video/quicktime" />
+                      Your browser does not support the video tag.
                     </video>
                   ) : (
                     // Fallback placeholder when no video
