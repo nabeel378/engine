@@ -1,7 +1,7 @@
 "use client"
 
 import { Card, CardContent } from "@/components/ui/card"
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 
 const testimonials = [
   {
@@ -49,7 +49,12 @@ export function TestimonialsSection() {
   const [isDragging, setIsDragging] = useState(false)
   const [startX, setStartX] = useState(0)
   const [scrollLeft, setScrollLeft] = useState(0)
+  const [isPaused, setIsPaused] = useState(false)
   const trackRef = useRef<HTMLDivElement>(null)
+  const intervalIdRef = useRef<NodeJS.Timeout | null>(null)
+
+  // Create infinite loop by duplicating testimonials
+  const infiniteTestimonials = [...testimonials, ...testimonials]
 
   const handleMouseDown = (e: React.MouseEvent) => {
     setIsDragging(true)
@@ -85,6 +90,43 @@ export function TestimonialsSection() {
       trackRef.current.scrollLeft = scrollLeft - walk
     }
   }
+
+  const handleTouchEnd = () => {
+    setIsDragging(false)
+  }
+
+  useEffect(() => {
+    const container = trackRef.current
+    if (!container) return
+
+    const autoScroll = () => {
+      if (!isPaused) {
+        const singleSetWidth = (testimonials.length * 356) // 340px width + 16px gap
+        const maxScroll = singleSetWidth
+        
+        if (container.scrollLeft >= maxScroll - 10) {
+          container.scrollLeft = 0
+        } else {
+          container.scrollLeft += 1
+        }
+      }
+    }
+
+    intervalIdRef.current = setInterval(autoScroll, 30)
+
+    const handleMouseEnter = () => setIsPaused(true)
+    const handleMouseLeave = () => setIsPaused(false)
+
+    container.addEventListener('mouseenter', handleMouseEnter)
+    container.addEventListener('mouseleave', handleMouseLeave)
+
+    return () => {
+      if (intervalIdRef.current) clearInterval(intervalIdRef.current)
+      container.removeEventListener('mouseenter', handleMouseEnter)
+      container.removeEventListener('mouseleave', handleMouseLeave)
+    }
+  }, [isPaused])
+
   return (
     <section className="py-16 lg:py-20 bg-background border-y border-border">
       <div className="container mx-auto px-4">
@@ -110,7 +152,7 @@ export function TestimonialsSection() {
           onMouseLeave={handleMouseUp}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
-          onTouchEnd={handleMouseUp}
+          onTouchEnd={handleTouchEnd}
           style={{
             display: 'flex',
             gap: '1.5rem',
@@ -120,9 +162,11 @@ export function TestimonialsSection() {
             cursor: isDragging ? 'grabbing' : 'grab',
             userSelect: isDragging ? 'none' : 'auto',
             WebkitUserSelect: isDragging ? 'none' : 'auto',
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none',
           }}
         >
-          {testimonials.map((testimonial, index) => (
+          {infiniteTestimonials.map((testimonial, index) => (
             <Card
               key={index}
               className="testimonial-card flex-shrink-0"
@@ -159,6 +203,11 @@ export function TestimonialsSection() {
           ))}
         </div>
       </div>
+      <style>{`
+        .testimonial-scroll-container::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </section>
   )
 }
