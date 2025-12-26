@@ -11,7 +11,7 @@ const features = [
     icon: Filter,
     title: "Keyword Trigger",
     description: "Auto-respond to customer messages based on keywords and conditions",
-    video: "/keyword.mov"
+    video: "/keyword.mp4"
   },
   {
     icon: Send,
@@ -42,13 +42,13 @@ const features = [
     icon: BarChart3,
     title: "Analytics",
     description: "Real-time insights into response times, conversion rates, and engagement",
-    video: "/analytic.mov"
+    video: "/analytic.mp4"
   },
   {
     icon: Zap,
     title: "AI Assistant",
     description: "Intelligent handoff and auto-responses powered by AI",
-    video: "/ai.mov"
+    video: "/ai.mp4"
   },
 ]
 
