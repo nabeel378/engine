@@ -1,5 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
+import Script from "next/script"
 import { Geist, Geist_Mono, Merriweather } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
@@ -30,6 +31,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-PZ9W742GHS"
+        />
+        <Script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-PZ9W742GHS');
+            `,
+          }}
+        />
+      </head>
       <body className={`font-sans antialiased`}>
         {children}
         <Analytics />
