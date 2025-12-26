@@ -16,12 +16,6 @@ export function Footer() {
           <div className="flex flex-col">
             <h3 className="text-sm font-semibold text-foreground mb-4 uppercase tracking-wide">Product</h3>
             <nav className="flex flex-col space-y-3">
-              <a href="/#capabilities" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                Features
-              </a>
-              <a href="/#pricing" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                Pricing
-              </a>
               <a href="/privacy-policy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 Privacy Policy
               </a>
