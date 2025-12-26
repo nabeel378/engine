@@ -19,7 +19,7 @@ export function HeroSection() {
           <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button
               size="lg"
-              className="bg-primary hover:bg-primary text-primary-foreground rounded-md px-6 h-11 text-sm font-medium relative group overflow-hidden inline-flex items-center justify-center cursor-pointer"
+              className="bg-primary hover:bg-primary text-primary-foreground rounded-md px-6 h-11 text-sm font-medium relative group overflow-hidden inline-flex items-center justify-center cursor-pointer hover:shadow-lg transition-shadow duration-300"
               onClick={() => window.open('https://bit.ly/waply-book-demo', '_blank')}
             >
               <span className="transition-all duration-300 group-hover:opacity-0 group-hover:-translate-y-full">
@@ -33,7 +33,7 @@ export function HeroSection() {
             <Button
               size="lg"
               variant="outline"
-              className="border-primary text-primary hover:text-primary hover:bg-background bg-background rounded-md px-6 h-11 text-sm font-medium relative group overflow-hidden inline-flex items-center justify-center cursor-pointer"
+              className="border-primary text-primary hover:text-primary hover:bg-background bg-background rounded-md px-6 h-11 text-sm font-medium relative group overflow-hidden inline-flex items-center justify-center cursor-pointer hover:shadow-lg transition-shadow duration-300"
               onClick={() => window.open('https://app.waply.io', '_blank')}
             >
               <span className="transition-all duration-300 group-hover:opacity-0 group-hover:-translate-y-full flex items-center gap-2">
