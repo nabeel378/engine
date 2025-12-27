@@ -5,7 +5,6 @@ export default function TermsOfServicePage() {
   return (
     <main className="min-h-screen">
       <Navbar />
-      <div className="mt-2.5 border-t border-dotted border-border"></div>
       
       <section className="py-16 lg:py-20 bg-background">
         <div className="container mx-auto px-4">
