@@ -34,7 +34,7 @@ export function HeroSection() {
               size="lg"
               variant="outline"
               className="border-primary text-primary hover:text-primary hover:bg-background bg-background rounded-md px-6 h-11 text-sm font-medium relative group overflow-hidden inline-flex items-center justify-center cursor-pointer hover:shadow-lg transition-shadow duration-300"
-              onClick={() => window.open('https://app.waply.io', '_blank')}
+              onClick={() => window.open('https://accounts.waply.io', '_blank')}
             >
               <span className="transition-all duration-300 group-hover:opacity-0 group-hover:-translate-y-full flex items-center gap-2">
                 Get Started
